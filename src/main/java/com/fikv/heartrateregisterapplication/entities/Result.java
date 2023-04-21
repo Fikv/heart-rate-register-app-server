@@ -18,8 +18,8 @@ public class Result {
     private Long id;
     @OneToOne
     private User user;
-    @OneToOne
-    private
+    @ManyToOne
+    private Notification notification;
     private Long systolic;//skurczowe
     private Long diastolic;//rozkurczowe
     private Date dateOfMeasurement;

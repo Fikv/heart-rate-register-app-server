@@ -15,7 +15,8 @@ public class Notification {
     private Long id;
     @OneToOne
     private User user;
-    private String time
+    private String dayOfTheWeek;
+    private String hours;
 
 
 }
