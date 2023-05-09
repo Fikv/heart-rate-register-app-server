@@ -1,8 +1,8 @@
 package com.fikv.heartrateregisterapplication.entities;
 
-import jakarta.persistence.*;
 import lombok.*;
 
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity(name = "RESULT")
@@ -17,11 +17,12 @@ public class Result {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @OneToOne
-    private User user;
-    @OneToOne
-    private
+    private AppUser user;
+    @ManyToOne
+    private Notification notification;
     private Long systolic;//skurczowe
     private Long diastolic;//rozkurczowe
+    private Long heartRate;
     private Date dateOfMeasurement;
 
 
