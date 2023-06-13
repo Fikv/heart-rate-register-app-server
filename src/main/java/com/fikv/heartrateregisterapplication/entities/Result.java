@@ -3,7 +3,7 @@ package com.fikv.heartrateregisterapplication.entities;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDate;
 
 @Entity(name = "RESULT")
 @Builder
@@ -23,7 +23,7 @@ public class Result {
     private Long systolic;//skurczowe
     private Long diastolic;//rozkurczowe
     private Long heartRate;
-    private Date dateOfMeasurement;
+    private LocalDate dateOfMeasurement;
 
 
 

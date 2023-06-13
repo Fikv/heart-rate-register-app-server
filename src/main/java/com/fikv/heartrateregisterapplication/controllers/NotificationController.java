@@ -1,14 +1,13 @@
 package com.fikv.heartrateregisterapplication.controllers;
 
 import com.fikv.heartrateregisterapplication.dtos.NotificationDTO;
+import com.fikv.heartrateregisterapplication.entities.Notification;
 import com.fikv.heartrateregisterapplication.serives.NotificationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @RequiredArgsConstructor
 @RequestMapping(path = "/notifications")
@@ -20,5 +19,10 @@ public class NotificationController {
     @PostMapping("/add")
     public ResponseEntity<NotificationDTO> saveNotification(@RequestBody NotificationDTO notificationDTO) {
         return new ResponseEntity<>(notificationService.addNotification(notificationDTO), HttpStatus.CREATED);
+    }
+
+    @GetMapping("/get/{username}")
+    public ResponseEntity<Notification> getNotification(@PathVariable String username) {
+        return ResponseEntity.ok(notificationService.getNotification(username));
     }
 }

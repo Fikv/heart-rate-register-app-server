@@ -1,10 +1,9 @@
 package com.fikv.heartrateregisterapplication.dtos;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
 import javax.validation.constraints.NotNull;
-import java.util.Date;
+import java.time.LocalDate;
 
 @Data
 public class ResultDTO {
@@ -20,7 +19,5 @@ public class ResultDTO {
     private Long diastolic;
     @NotNull
     private Long heartRate;
-    @NotNull
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy hh:mm:ss")
-    private Date dateOfMeasurement;
+    private LocalDate dateOfMeasurement;
 }
