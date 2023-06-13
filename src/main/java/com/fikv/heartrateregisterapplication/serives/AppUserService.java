@@ -25,4 +25,8 @@ public class AppUserService {
         return appUser != null && appUser.getPassword().equals(loginAppUserDTO.getPassword());
     }
 
+    public Long getIdByUsername(String login){
+        return userRepository.findByUsername(login).getId();
+    }
+
 }

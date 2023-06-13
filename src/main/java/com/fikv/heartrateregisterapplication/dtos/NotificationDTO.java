@@ -5,7 +5,7 @@ import lombok.Data;
 @Data
 public class NotificationDTO {
 
-    private Long userId;
+    private String userName;
     private Integer dayOfTheWeek;
     private String hours;
 

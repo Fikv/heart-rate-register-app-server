@@ -6,9 +6,7 @@ import com.fikv.heartrateregisterapplication.serives.AppUserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping(path = "/user")
@@ -27,6 +25,11 @@ public class AppUserController {
     public ResponseEntity<Boolean> createUser(@RequestBody LoginAppUserDTO loginAppUserDTO) {
         return appUserService.login(loginAppUserDTO) ? ResponseEntity.ok(true)
                 : ResponseEntity.badRequest().body(false);
+    }
+
+    @GetMapping(path = "/login/{login}")
+    public ResponseEntity<Long> getUserId(@PathVariable String login){
+        return ResponseEntity.ok(appUserService.getIdByUsername(login));
     }
 
 }

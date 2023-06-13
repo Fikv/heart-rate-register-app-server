@@ -1,6 +1,8 @@
 package com.fikv.heartrateregisterapplication.controllers;
 
 import com.fikv.heartrateregisterapplication.dtos.ResultDTO;
+import com.fikv.heartrateregisterapplication.dtos.SearchDatesDTO;
+import com.fikv.heartrateregisterapplication.entities.Result;
 import com.fikv.heartrateregisterapplication.repositories.UserRepository;
 import com.fikv.heartrateregisterapplication.serives.ResultService;
 import lombok.RequiredArgsConstructor;
@@ -9,6 +11,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.List;
 
 @Controller
 @RequestMapping(path = "/results")
@@ -24,8 +28,8 @@ public class ResultController {
       return ResponseEntity.ok(resultDTO);
     }
 
-//    @GetMapping("/{user}")
-//    public ResponseEntity<List<ResultDTO>> getAllResults(@PathVariable String username){
-//        return ResponseEntity.ok(resultService.getAll(userRepository.getByUsername));
-//    }
+    @PostMapping("/getFromDates")
+    public ResponseEntity<List<Result>> getAllResults(@RequestBody SearchDatesDTO searchDatesDTO){
+        return ResponseEntity.ok(resultService.getAllResults(searchDatesDTO));
+    }
 }
